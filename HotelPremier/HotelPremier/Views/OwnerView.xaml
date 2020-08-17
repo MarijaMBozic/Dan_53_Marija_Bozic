@@ -1,0 +1,59 @@
+﻿<Window x:Class="HotelPremier.Views.OwnerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelPremier.Views"
+        mc:Ignorable="d"
+        Title="OwnerView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="13" Grid.Row="1" Name="btnLogOut" Content="LogOut" IsEnabled="true" Height="20" 
+                Width="70" HorizontalAlignment="Left" Command="{Binding LogOut, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="5" Grid.RowSpan="3" Name="btnManager" Content="Add Manager" IsEnabled="True" Height="50" 
+                Width="200" HorizontalAlignment="Left" Command="{Binding GoToAddManager, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="5" Grid.RowSpan="4" Name="btnWorker" Content="Add Worker" IsEnabled="True" Height="50" 
+                Width="200" HorizontalAlignment="Left" Command="{Binding GoToAddWorker, UpdateSourceTrigger=PropertyChanged}"/>       
+    </Grid>
+</Window>
