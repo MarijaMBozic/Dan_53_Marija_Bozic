@@ -145,27 +145,6 @@ namespace HotelPremier.ViewModels
                     {
                         MessageBox.Show("The floor is occupied select another!");
                     }
-                    else
-                    {
-                        //int userId = service.AddClinicUser(User);
-                        //if (userId != 0)
-                        //{
-                        //    UserDoctor.ClinicUserId = userId;
-                        //    UserDoctor.DepartmentId = selectedDepartment.DepartmentId;
-                        //    UserDoctor.WorkShiftId = selectedWorkShift.WorkShiftId;
-                        //    UserDoctor.ClinicManagerId = selectedManager.ClinicManagerId;
-
-                        //    if (service.AddNewDoctor(UserDoctor) != 0)
-                        //    {
-                        //        MessageBox.Show("You have successfully added new doctor");
-                        //        Logging.LoggAction("AddDoctorViewModel", "Info", "Succesfull added new doctor");
-
-                        //        DoctorView doctorView = new DoctorView(UserAdmin);
-                        //        doctorView.Show();
-                        //        addDoctorView.Close();
-                        //    }
-                        //}
-                    }
                 }
             }
             catch (Exception ex)

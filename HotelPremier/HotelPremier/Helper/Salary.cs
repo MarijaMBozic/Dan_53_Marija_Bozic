@@ -22,5 +22,20 @@ namespace HotelPremier.Helper
             }
             return result;
         }
+
+        public static decimal CalculateManagerInput(decimal salary, int workExperienc, int qualificationLevel, int genderId)
+        {
+            decimal result = 0;
+
+            if (genderId == 1)
+            {
+                result =salary-(decimal)(1000 * 0.75f * workExperienc * 0.15f * qualificationLevel * 1.15f);
+            }
+            else
+            {
+                result =salary-(decimal)(1000 * 0.75f * workExperienc * 0.15f * qualificationLevel * 1.12f);
+            }
+            return result;
+        }
     }
 }

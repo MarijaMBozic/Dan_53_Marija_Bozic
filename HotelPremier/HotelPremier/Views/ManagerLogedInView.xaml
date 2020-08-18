@@ -87,7 +87,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Column="13" Grid.Row="16" Name="btnEditAllSalary" Content="Edit All Salary" Width="70" Height="20"
+        <Button Grid.Column="13" Grid.Row="16" Name="btnEditAllSalary" Content="Edit All Salary" IsEnabled="False" Width="70" Height="20"
                 Command="{Binding EditAllSalary, UpdateSourceTrigger=PropertyChanged}"
                 FontWeight="Bold" HorizontalAlignment="Left"/>
     </Grid>

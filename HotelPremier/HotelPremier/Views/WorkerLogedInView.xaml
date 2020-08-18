@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPremier.Views"
+        xmlns:converters="clr-namespace:HotelPremier.Converters"
         mc:Ignorable="d"
         Title="WorkerLogedInView" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:ChackSalaryInfoToEnabledConverter x:Key="ChackSalaryInfoToEnabledConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -69,8 +75,9 @@
                 <DataGridTextColumn Header="Explanation " Binding="{Binding Explanation}" Width="150"/>                      
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Column="13" Grid.Row="10" Name="btnCheckSalary" Content="Check salary" Width="90" Height="20"
-                Command="{Binding CheckSalary, UpdateSourceTrigger=PropertyChanged}"
+        <Button Grid.Column="13" Grid.Row="10" Name="btnCheckSalary" Content="Salari info" Width="90" Height="20"
+                IsEnabled="{Binding HotelUser.Salary, Converter={StaticResource ChackSalaryInfoToEnabledConverter}}"
+                 Command="{Binding OpenSalaryInfo, UpdateSourceTrigger=PropertyChanged}"
                 FontWeight="Bold" HorizontalAlignment="Left"/>
         <Button Grid.Column="13" Grid.Row="16" Name="btnNewRequest" Content="New request" Width="90" Height="20"
                 Command="{Binding AddNewRequest, UpdateSourceTrigger=PropertyChanged}"

@@ -64,7 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ChackSalaryInfoToEnabledConverter.cs" />
     <Compile Include="Converters\EditToEnabledConverter.cs" />
+    <Compile Include="Converters\GenderIdToDecimalConverter.cs" />
     <Compile Include="Converters\GenderIDToNameConverter.cs" />
     <Compile Include="Engagment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -112,6 +114,7 @@
     <Compile Include="ViewModels\ManagerLogedInViewModel.cs" />
     <Compile Include="ViewModels\OwnerViewModel.cs" />
     <Compile Include="ViewModels\RequestViewModel.cs" />
+    <Compile Include="ViewModels\SalaryInfoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WorkerLogedInViewModel.cs" />
     <Compile Include="Views\AddManagerView.xaml.cs">
@@ -134,6 +137,9 @@
     </Compile>
     <Compile Include="Views\RequestView.xaml.cs">
       <DependentUpon>RequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SalariInfoView.xaml.cs">
+      <DependentUpon>SalariInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WorkerLogedInView.xaml.cs">
       <DependentUpon>WorkerLogedInView.xaml</DependentUpon>
@@ -189,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SalariInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

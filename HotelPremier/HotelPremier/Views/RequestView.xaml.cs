@@ -27,7 +27,7 @@ namespace HotelPremier.Views
             InitializeComponent();
             RequestViewModel requestViewModel = new RequestViewModel(worker, hotelUser, this);
             this.DataContext = requestViewModel;
-            requestViewModel = requestViewModel;
+            this.requestViewModel = requestViewModel;
         }
 
         private bool isValidStartDate;

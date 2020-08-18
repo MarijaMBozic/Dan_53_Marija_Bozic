@@ -78,7 +78,7 @@ create table Request(
  FOREIGN KEY (WorkerId)  REFERENCES Worker(WorkerId),
  ManagerId                              int                    not null,
  FOREIGN KEY (ManagerId)  REFERENCES Manager(ManagerId) ,
- IsDeleted                              bit                    default 0 not null,
+ IsDeleted                              bit                    default 0 not null
 )
 
 Insert into Gender(Name)

@@ -139,6 +139,33 @@ namespace HotelPremier.ViewModels
             return true;
         }
 
+        private ICommand openSalaryInfo;
+
+        public ICommand OpenSalaryInfo
+        {
+            get
+            {
+                if (openSalaryInfo == null)
+                {
+                    openSalaryInfo = new RelayCommand(param => OpenSalaryInfoExecute());
+                }
+                return openSalaryInfo;
+            }
+        }
+
+        public void OpenSalaryInfoExecute()
+        {
+            try
+            {
+                SalariInfoView main = new SalariInfoView(worker, hotelUser);
+                main.Show();
+                workerLogedInView.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         #endregion
     }
 }
