@@ -222,7 +222,7 @@ namespace HotelPremier.Views
                 lblValidationHotelFloor.Content = "The floor number can't \nbe larger then 25!";
             }
 
-            string patternFloor = @"^([0-9]{2})$";
+            string patternFloor = @"^([0-9]{1,2})$";
             Match match = Regex.Match(txtFloor.Text, patternFloor, RegexOptions.IgnoreCase);
 
             bool isValid =int.TryParse(txtFloor.Text, out int inputvalu);
@@ -253,7 +253,7 @@ namespace HotelPremier.Views
                 lblValidationWorkExperience.Content = "The work experience can't \nbe larger then 40 years!";
             }
 
-            string patterntxtWorkExperience = @"^([0-9]{2})$";
+            string patterntxtWorkExperience = @"^([0-9]{1,2})$";
             Match match = Regex.Match(txtWorkExperience.Text, patterntxtWorkExperience, RegexOptions.IgnoreCase);
 
             bool isValid = int.TryParse(txtWorkExperience.Text, out int inputvalu);

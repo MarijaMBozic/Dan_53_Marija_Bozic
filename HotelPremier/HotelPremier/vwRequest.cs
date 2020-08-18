@@ -22,7 +22,8 @@ namespace HotelPremier
         public string Explanation { get; set; }
         public int WorkerId { get; set; }
         public int ManagerId { get; set; }
-        public int Mgn { get; set; }
-        public int Work { get; set; }
+        public bool Mgn { get; set; }
+        public int Expr1 { get; set; }
+        public int Expr2 { get; set; }
     }
 }

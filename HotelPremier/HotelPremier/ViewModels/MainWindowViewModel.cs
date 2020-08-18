@@ -70,36 +70,30 @@ namespace HotelPremier.ViewModels
                 }
                 else if (OwnerLogIn.Login(username, password) == false)
                 {
-                    //ClinicUser user = service.LoginUser(username, password);
-                    //if (user != null)
-                    //{
-                    //    if (user.RoleId == 1)
-                    //    {
-                    //        if (service.FindeInstitutionByUser(user.ClinicUserId) == false)
-                    //        {
-                    //            MessageBox.Show("Successful login");
-                    //            AddInstitutionView window = new AddInstitutionView(user, new Institution(), false);
-                    //            window.Show();
-                    //            main.Close();
-                    //        }
-                    //        else
-                    //        {
-                    //            MessageBox.Show("Successful login");
-                    //            AdministratorView window = new AdministratorView(user);
-                    //            window.Show();
-                    //            main.Close();
-                    //        }
-                    //    }
-                    //    else if (user.RoleId == 2)
-                    //    {
-                    //        MessageBox.Show("Successful login maintainanc");
-                    //    }
+                    HotelUser user = service.LoginUser(username, password);
+                    if (user != null)
+                    {
+                        if (user.RoleId == 1)
+                        {
 
+                            MessageBox.Show("Successful login");
+                            WorkerLogedInView window = new WorkerLogedInView(user);
+                            window.Show();
+                            main.Close();
+                        }
+                        else if (user.RoleId == 2)
+                        {
+                            MessageBox.Show("Successful login");
+                            ManagerLogedInView window = new ManagerLogedInView(user);
+                            window.Show();
+                            main.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong user or password credentials");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Wrong user or password credentials");
-                }           
             }
             catch (Exception ex)
             {

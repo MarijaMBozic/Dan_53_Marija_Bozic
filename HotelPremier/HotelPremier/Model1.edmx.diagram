@@ -4,27 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cfc54c1769614a3987b599a7229051a3" Name="Diagram1">
-        <EntityTypeShape EntityType="HotelPremierModel.Engagment" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.Gender" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.HotelUser" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.Manager" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.QualificationLevel" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.Request" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.Role" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.Worker" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.vwManager" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.vwRequest" Width="1.5" PointX="2.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelPremierModel.vwWorker" Width="1.5" PointX="4.75" PointY="8.5" IsExpanded="true" />
-        <AssociationConnector Association="HotelPremierModel.FK__Worker__Engagmen__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Worker__GenderId__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__HotelUser__RoleI__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Manager__HotelUs__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Worker__HotelUse__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Manager__Qualifi__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Request__Manager__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Worker__ManagerI__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelPremierModel.FK__Request__WorkerI__412EB0B6" ManuallyRouted="false" />
+      <Diagram DiagramId="2fc570197afe40e6829d8df783114970" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelPremierModel.Engagment" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.Gender" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.HotelUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.Manager" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.QualificationLevel" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.Request" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.Role" Width="1.5" PointX="1.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.Worker" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.vwManager" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.vwRequest" Width="1.5" PointX="10.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelPremierModel.vwWorker" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="HotelPremierModel.FK__Worker__Engagmen__178D7CA5" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Worker__GenderId__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__HotelUser__RoleI__0E04126B" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Manager__HotelUs__11D4A34F" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Worker__HotelUse__15A53433" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Manager__Qualifi__12C8C788" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Request__Manager__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Worker__ManagerI__1975C517" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Worker__Qualific__1881A0DE" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelPremierModel.FK__Request__WorkerI__1E3A7A34" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

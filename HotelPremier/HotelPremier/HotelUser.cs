@@ -23,7 +23,6 @@ namespace HotelPremier
     
         public int HotelUserId { get; set; }
         public string FullName { get; set; }
-        public int IDNumber { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }

@@ -14,18 +14,17 @@ namespace HotelPremier
     
     public partial class vwManager
     {
+        public string QualificationLevelId { get; set; }
         public int HotelUserId { get; set; }
         public string FullName { get; set; }
-        public int IDNumber { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public int RoleId { get; set; }
-        public int HotelFloor { get; set; }
         public int ManagerId { get; set; }
+        public int HotelFloor { get; set; }
         public int WorkExperience { get; set; }
-        public int QualificationLevelId { get; set; }
-        public string Name { get; set; }
+        public int Expr1 { get; set; }
     }
 }

@@ -25,7 +25,6 @@
           </Key>
           <Property Name="HotelUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IDNumber" Type="int" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -61,6 +60,7 @@
           <Property Name="Explanation" Type="nvarchar" MaxLength="100" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
           <Property Name="ManagerId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -74,44 +74,44 @@
             <PropertyRef Name="WorkerId" />
           </Key>
           <Property Name="WorkerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClinicFloor" Type="int" Nullable="false" />
+          <Property Name="HotelFloor" Type="int" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Salary" Type="money" />
+          <Property Name="Salary" Type="money" Nullable="false" />
           <Property Name="HotelUserId" Type="int" Nullable="false" />
           <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="EngagmentId" Type="int" Nullable="false" />
+          <Property Name="WorkExperience" Type="int" Nullable="false" />
+          <Property Name="QualificationLevelId" Type="int" Nullable="false" />
           <Property Name="ManagerId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelPremier.dbo.vwManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vwManager">
           <Key>
+            <PropertyRef Name="QualificationLevelId" />
             <PropertyRef Name="HotelUserId" />
             <PropertyRef Name="FullName" />
-            <PropertyRef Name="IDNumber" />
             <PropertyRef Name="Email" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="RoleId" />
-            <PropertyRef Name="HotelFloor" />
             <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="HotelFloor" />
             <PropertyRef Name="WorkExperience" />
-            <PropertyRef Name="QualificationLevelId" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Expr1" />
           </Key>
+          <Property Name="QualificationLevelId" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="HotelUserId" Type="int" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IDNumber" Type="int" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
-          <Property Name="HotelFloor" Type="int" Nullable="false" />
           <Property Name="ManagerId" Type="int" Nullable="false" />
+          <Property Name="HotelFloor" Type="int" Nullable="false" />
           <Property Name="WorkExperience" Type="int" Nullable="false" />
-          <Property Name="QualificationLevelId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelPremier.dbo.vwRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -122,7 +122,8 @@ warning 6002: The table/view 'HotelPremier.dbo.vwRequest' does not have a primar
             <PropertyRef Name="WorkerId" />
             <PropertyRef Name="ManagerId" />
             <PropertyRef Name="Mgn" />
-            <PropertyRef Name="Work" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
           </Key>
           <Property Name="RequestId" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="date" />
@@ -132,8 +133,9 @@ warning 6002: The table/view 'HotelPremier.dbo.vwRequest' does not have a primar
           <Property Name="Explanation" Type="nvarchar" MaxLength="100" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
           <Property Name="ManagerId" Type="int" Nullable="false" />
-          <Property Name="Mgn" Type="int" Nullable="false" />
-          <Property Name="Work" Type="int" Nullable="false" />
+          <Property Name="Mgn" Type="bit" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -141,35 +143,40 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <Key>
             <PropertyRef Name="HotelUserId" />
             <PropertyRef Name="FullName" />
-            <PropertyRef Name="IDNumber" />
             <PropertyRef Name="Email" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="RoleId" />
             <PropertyRef Name="WorkerId" />
-            <PropertyRef Name="ClinicFloor" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="GenderId" />
             <PropertyRef Name="EngagmentId" />
-            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="HotelFloor" />
+            <PropertyRef Name="WorkExperience" />
+            <PropertyRef Name="QualificationLevelId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ManagerId" />
           </Key>
           <Property Name="HotelUserId" Type="int" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IDNumber" Type="int" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
-          <Property Name="ClinicFloor" Type="int" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Salary" Type="money" />
           <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="EngagmentId" Type="int" Nullable="false" />
-          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="money" Nullable="false" />
+          <Property Name="HotelFloor" Type="int" Nullable="false" />
+          <Property Name="WorkExperience" Type="int" Nullable="false" />
+          <Property Name="QualificationLevelId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ManagerId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__HotelUser__RoleI__32E0915F">
+        <Association Name="FK__HotelUser__RoleI__0E04126B">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -181,7 +188,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manager__HotelUs__35BCFE0A">
+        <Association Name="FK__Manager__HotelUs__11D4A34F">
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="1" />
           <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -193,7 +200,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manager__Qualifi__36B12243">
+        <Association Name="FK__Manager__Qualifi__12C8C788">
           <End Role="QualificationLevel" Type="Self.QualificationLevel" Multiplicity="1" />
           <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -205,7 +212,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__Manager__4222D4EF">
+        <Association Name="FK__Request__Manager__1F2E9E6D">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -217,7 +224,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__WorkerI__412EB0B6">
+        <Association Name="FK__Request__WorkerI__1E3A7A34">
           <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -229,7 +236,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__Engagmen__3B75D760">
+        <Association Name="FK__Worker__Engagmen__178D7CA5">
           <End Role="Engagment" Type="Self.Engagment" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -241,7 +248,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__GenderId__3A81B327">
+        <Association Name="FK__Worker__GenderId__1699586C">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,7 +260,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__HotelUse__398D8EEE">
+        <Association Name="FK__Worker__HotelUse__15A53433">
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +272,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__ManagerI__3C69FB99">
+        <Association Name="FK__Worker__ManagerI__1975C517">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,6 +281,18 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Principal>
             <Dependent Role="Worker">
               <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Worker__Qualific__1881A0DE">
+          <End Role="QualificationLevel" Type="Self.QualificationLevel" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QualificationLevel">
+              <PropertyRef Name="QualificationLevelId" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="QualificationLevelId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -288,19 +307,18 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vwManager" EntityType="Self.vwManager" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vwManager].[QualificationLevelId] AS [QualificationLevelId], 
     [vwManager].[HotelUserId] AS [HotelUserId], 
     [vwManager].[FullName] AS [FullName], 
-    [vwManager].[IDNumber] AS [IDNumber], 
     [vwManager].[DateOfBirth] AS [DateOfBirth], 
     [vwManager].[Email] AS [Email], 
     [vwManager].[Username] AS [Username], 
     [vwManager].[Password] AS [Password], 
     [vwManager].[RoleId] AS [RoleId], 
-    [vwManager].[HotelFloor] AS [HotelFloor], 
     [vwManager].[ManagerId] AS [ManagerId], 
+    [vwManager].[HotelFloor] AS [HotelFloor], 
     [vwManager].[WorkExperience] AS [WorkExperience], 
-    [vwManager].[QualificationLevelId] AS [QualificationLevelId], 
-    [vwManager].[Name] AS [Name]
+    [vwManager].[Expr1] AS [Expr1]
     FROM [dbo].[vwManager] AS [vwManager]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwRequest" EntityType="Self.vwRequest" store:Type="Views" store:Schema="dbo">
@@ -314,62 +332,69 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
     [vwRequest].[WorkerId] AS [WorkerId], 
     [vwRequest].[ManagerId] AS [ManagerId], 
     [vwRequest].[Mgn] AS [Mgn], 
-    [vwRequest].[Work] AS [Work]
+    [vwRequest].[Expr1] AS [Expr1], 
+    [vwRequest].[Expr2] AS [Expr2]
     FROM [dbo].[vwRequest] AS [vwRequest]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwWorker" EntityType="Self.vwWorker" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vwWorker].[HotelUserId] AS [HotelUserId], 
     [vwWorker].[FullName] AS [FullName], 
-    [vwWorker].[IDNumber] AS [IDNumber], 
     [vwWorker].[DateOfBirth] AS [DateOfBirth], 
     [vwWorker].[Email] AS [Email], 
     [vwWorker].[Username] AS [Username], 
     [vwWorker].[Password] AS [Password], 
     [vwWorker].[RoleId] AS [RoleId], 
     [vwWorker].[WorkerId] AS [WorkerId], 
-    [vwWorker].[ClinicFloor] AS [ClinicFloor], 
     [vwWorker].[Citizenship] AS [Citizenship], 
-    [vwWorker].[Salary] AS [Salary], 
     [vwWorker].[GenderId] AS [GenderId], 
     [vwWorker].[EngagmentId] AS [EngagmentId], 
-    [vwWorker].[Expr1] AS [Expr1]
+    [vwWorker].[Salary] AS [Salary], 
+    [vwWorker].[HotelFloor] AS [HotelFloor], 
+    [vwWorker].[WorkExperience] AS [WorkExperience], 
+    [vwWorker].[QualificationLevelId] AS [QualificationLevelId], 
+    [vwWorker].[Name] AS [Name], 
+    [vwWorker].[ManagerId] AS [ManagerId]
     FROM [dbo].[vwWorker] AS [vwWorker]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__HotelUser__RoleI__32E0915F" Association="Self.FK__HotelUser__RoleI__32E0915F">
+          <AssociationSet Name="FK__HotelUser__RoleI__0E04126B" Association="Self.FK__HotelUser__RoleI__0E04126B">
             <End Role="Role" EntitySet="Role" />
             <End Role="HotelUser" EntitySet="HotelUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manager__HotelUs__35BCFE0A" Association="Self.FK__Manager__HotelUs__35BCFE0A">
+          <AssociationSet Name="FK__Manager__HotelUs__11D4A34F" Association="Self.FK__Manager__HotelUs__11D4A34F">
             <End Role="HotelUser" EntitySet="HotelUser" />
             <End Role="Manager" EntitySet="Manager" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manager__Qualifi__36B12243" Association="Self.FK__Manager__Qualifi__36B12243">
+          <AssociationSet Name="FK__Manager__Qualifi__12C8C788" Association="Self.FK__Manager__Qualifi__12C8C788">
             <End Role="QualificationLevel" EntitySet="QualificationLevel" />
             <End Role="Manager" EntitySet="Manager" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__Manager__4222D4EF" Association="Self.FK__Request__Manager__4222D4EF">
+          <AssociationSet Name="FK__Request__Manager__1F2E9E6D" Association="Self.FK__Request__Manager__1F2E9E6D">
             <End Role="Manager" EntitySet="Manager" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__WorkerI__412EB0B6" Association="Self.FK__Request__WorkerI__412EB0B6">
+          <AssociationSet Name="FK__Request__WorkerI__1E3A7A34" Association="Self.FK__Request__WorkerI__1E3A7A34">
             <End Role="Worker" EntitySet="Worker" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__Engagmen__3B75D760" Association="Self.FK__Worker__Engagmen__3B75D760">
+          <AssociationSet Name="FK__Worker__Engagmen__178D7CA5" Association="Self.FK__Worker__Engagmen__178D7CA5">
             <End Role="Engagment" EntitySet="Engagment" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__GenderId__3A81B327" Association="Self.FK__Worker__GenderId__3A81B327">
+          <AssociationSet Name="FK__Worker__GenderId__1699586C" Association="Self.FK__Worker__GenderId__1699586C">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__HotelUse__398D8EEE" Association="Self.FK__Worker__HotelUse__398D8EEE">
+          <AssociationSet Name="FK__Worker__HotelUse__15A53433" Association="Self.FK__Worker__HotelUse__15A53433">
             <End Role="HotelUser" EntitySet="HotelUser" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__ManagerI__3C69FB99" Association="Self.FK__Worker__ManagerI__3C69FB99">
+          <AssociationSet Name="FK__Worker__ManagerI__1975C517" Association="Self.FK__Worker__ManagerI__1975C517">
             <End Role="Manager" EntitySet="Manager" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Worker__Qualific__1881A0DE" Association="Self.FK__Worker__Qualific__1881A0DE">
+            <End Role="QualificationLevel" EntitySet="QualificationLevel" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
@@ -384,7 +409,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           </Key>
           <Property Name="EngagmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__Engagmen__3B75D760" FromRole="Engagment" ToRole="Worker" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__Engagmen__178D7CA5" FromRole="Engagment" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -392,7 +417,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           </Key>
           <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__GenderId__3A81B327" FromRole="Gender" ToRole="Worker" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__GenderId__1699586C" FromRole="Gender" ToRole="Worker" />
         </EntityType>
         <EntityType Name="HotelUser">
           <Key>
@@ -400,15 +425,14 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           </Key>
           <Property Name="HotelUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDNumber" Type="Int32" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK__HotelUser__RoleI__32E0915F" FromRole="HotelUser" ToRole="Role" />
-          <NavigationProperty Name="Managers" Relationship="Self.FK__Manager__HotelUs__35BCFE0A" FromRole="HotelUser" ToRole="Manager" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__HotelUse__398D8EEE" FromRole="HotelUser" ToRole="Worker" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__HotelUser__RoleI__0E04126B" FromRole="HotelUser" ToRole="Role" />
+          <NavigationProperty Name="Managers" Relationship="Self.FK__Manager__HotelUs__11D4A34F" FromRole="HotelUser" ToRole="Manager" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__HotelUse__15A53433" FromRole="HotelUser" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Manager">
           <Key>
@@ -419,10 +443,10 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <Property Name="HotelFloor" Type="Int32" Nullable="false" />
           <Property Name="WorkExperience" Type="Int32" Nullable="false" />
           <Property Name="QualificationLevelId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="HotelUser" Relationship="Self.FK__Manager__HotelUs__35BCFE0A" FromRole="Manager" ToRole="HotelUser" />
-          <NavigationProperty Name="QualificationLevel" Relationship="Self.FK__Manager__Qualifi__36B12243" FromRole="Manager" ToRole="QualificationLevel" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__Manager__4222D4EF" FromRole="Manager" ToRole="Request" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__ManagerI__3C69FB99" FromRole="Manager" ToRole="Worker" />
+          <NavigationProperty Name="HotelUser" Relationship="Self.FK__Manager__HotelUs__11D4A34F" FromRole="Manager" ToRole="HotelUser" />
+          <NavigationProperty Name="QualificationLevel" Relationship="Self.FK__Manager__Qualifi__12C8C788" FromRole="Manager" ToRole="QualificationLevel" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__Manager__1F2E9E6D" FromRole="Manager" ToRole="Request" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__ManagerI__1975C517" FromRole="Manager" ToRole="Worker" />
         </EntityType>
         <EntityType Name="QualificationLevel">
           <Key>
@@ -430,7 +454,8 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           </Key>
           <Property Name="QualificationLevelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Managers" Relationship="Self.FK__Manager__Qualifi__36B12243" FromRole="QualificationLevel" ToRole="Manager" />
+          <NavigationProperty Name="Managers" Relationship="Self.FK__Manager__Qualifi__12C8C788" FromRole="QualificationLevel" ToRole="Manager" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Worker__Qualific__1881A0DE" FromRole="QualificationLevel" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Request">
           <Key>
@@ -444,8 +469,9 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <Property Name="Explanation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
           <Property Name="ManagerId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Manager" Relationship="Self.FK__Request__Manager__4222D4EF" FromRole="Request" ToRole="Manager" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK__Request__WorkerI__412EB0B6" FromRole="Request" ToRole="Worker" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK__Request__Manager__1F2E9E6D" FromRole="Request" ToRole="Manager" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK__Request__WorkerI__1E3A7A34" FromRole="Request" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -453,54 +479,55 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           </Key>
           <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="HotelUsers" Relationship="Self.FK__HotelUser__RoleI__32E0915F" FromRole="Role" ToRole="HotelUser" />
+          <NavigationProperty Name="HotelUsers" Relationship="Self.FK__HotelUser__RoleI__0E04126B" FromRole="Role" ToRole="HotelUser" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
             <PropertyRef Name="WorkerId" />
           </Key>
           <Property Name="WorkerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClinicFloor" Type="Int32" Nullable="false" />
+          <Property Name="HotelFloor" Type="Int32" Nullable="false" />
           <Property Name="Citizenship" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="HotelUserId" Type="Int32" Nullable="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="EngagmentId" Type="Int32" Nullable="false" />
+          <Property Name="WorkExperience" Type="Int32" Nullable="false" />
+          <Property Name="QualificationLevelId" Type="Int32" Nullable="false" />
           <Property Name="ManagerId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Engagment" Relationship="Self.FK__Worker__Engagmen__3B75D760" FromRole="Worker" ToRole="Engagment" />
-          <NavigationProperty Name="Gender" Relationship="Self.FK__Worker__GenderId__3A81B327" FromRole="Worker" ToRole="Gender" />
-          <NavigationProperty Name="HotelUser" Relationship="Self.FK__Worker__HotelUse__398D8EEE" FromRole="Worker" ToRole="HotelUser" />
-          <NavigationProperty Name="Manager" Relationship="Self.FK__Worker__ManagerI__3C69FB99" FromRole="Worker" ToRole="Manager" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__WorkerI__412EB0B6" FromRole="Worker" ToRole="Request" />
+          <NavigationProperty Name="Engagment" Relationship="Self.FK__Worker__Engagmen__178D7CA5" FromRole="Worker" ToRole="Engagment" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Worker__GenderId__1699586C" FromRole="Worker" ToRole="Gender" />
+          <NavigationProperty Name="HotelUser" Relationship="Self.FK__Worker__HotelUse__15A53433" FromRole="Worker" ToRole="HotelUser" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK__Worker__ManagerI__1975C517" FromRole="Worker" ToRole="Manager" />
+          <NavigationProperty Name="QualificationLevel" Relationship="Self.FK__Worker__Qualific__1881A0DE" FromRole="Worker" ToRole="QualificationLevel" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__WorkerI__1E3A7A34" FromRole="Worker" ToRole="Request" />
         </EntityType>
         <EntityType Name="vwManager">
           <Key>
+            <PropertyRef Name="QualificationLevelId" />
             <PropertyRef Name="HotelUserId" />
             <PropertyRef Name="FullName" />
-            <PropertyRef Name="IDNumber" />
             <PropertyRef Name="Email" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="RoleId" />
-            <PropertyRef Name="HotelFloor" />
             <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="HotelFloor" />
             <PropertyRef Name="WorkExperience" />
-            <PropertyRef Name="QualificationLevelId" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Expr1" />
           </Key>
+          <Property Name="QualificationLevelId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HotelUserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDNumber" Type="Int32" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <Property Name="HotelFloor" Type="Int32" Nullable="false" />
           <Property Name="ManagerId" Type="Int32" Nullable="false" />
+          <Property Name="HotelFloor" Type="Int32" Nullable="false" />
           <Property Name="WorkExperience" Type="Int32" Nullable="false" />
-          <Property Name="QualificationLevelId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vwRequest">
           <Key>
@@ -509,7 +536,8 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             <PropertyRef Name="WorkerId" />
             <PropertyRef Name="ManagerId" />
             <PropertyRef Name="Mgn" />
-            <PropertyRef Name="Work" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
           </Key>
           <Property Name="RequestId" Type="Int32" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
@@ -519,42 +547,48 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <Property Name="Explanation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
           <Property Name="ManagerId" Type="Int32" Nullable="false" />
-          <Property Name="Mgn" Type="Int32" Nullable="false" />
-          <Property Name="Work" Type="Int32" Nullable="false" />
+          <Property Name="Mgn" Type="Boolean" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vwWorker">
           <Key>
             <PropertyRef Name="HotelUserId" />
             <PropertyRef Name="FullName" />
-            <PropertyRef Name="IDNumber" />
             <PropertyRef Name="Email" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="RoleId" />
             <PropertyRef Name="WorkerId" />
-            <PropertyRef Name="ClinicFloor" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="GenderId" />
             <PropertyRef Name="EngagmentId" />
-            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="HotelFloor" />
+            <PropertyRef Name="WorkExperience" />
+            <PropertyRef Name="QualificationLevelId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ManagerId" />
           </Key>
           <Property Name="HotelUserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDNumber" Type="Int32" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
-          <Property Name="ClinicFloor" Type="Int32" Nullable="false" />
           <Property Name="Citizenship" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="EngagmentId" Type="Int32" Nullable="false" />
-          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="HotelFloor" Type="Int32" Nullable="false" />
+          <Property Name="WorkExperience" Type="Int32" Nullable="false" />
+          <Property Name="QualificationLevelId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManagerId" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Worker__Engagmen__3B75D760">
+        <Association Name="FK__Worker__Engagmen__178D7CA5">
           <End Role="Engagment" Type="Self.Engagment" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -566,7 +600,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__GenderId__3A81B327">
+        <Association Name="FK__Worker__GenderId__1699586C">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -578,7 +612,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HotelUser__RoleI__32E0915F">
+        <Association Name="FK__HotelUser__RoleI__0E04126B">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -590,7 +624,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manager__HotelUs__35BCFE0A">
+        <Association Name="FK__Manager__HotelUs__11D4A34F">
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="1" />
           <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -602,7 +636,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__HotelUse__398D8EEE">
+        <Association Name="FK__Worker__HotelUse__15A53433">
           <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -614,7 +648,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manager__Qualifi__36B12243">
+        <Association Name="FK__Manager__Qualifi__12C8C788">
           <End Role="QualificationLevel" Type="Self.QualificationLevel" Multiplicity="1" />
           <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -626,7 +660,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__Manager__4222D4EF">
+        <Association Name="FK__Request__Manager__1F2E9E6D">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -638,7 +672,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Worker__ManagerI__3C69FB99">
+        <Association Name="FK__Worker__ManagerI__1975C517">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
           <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
           <ReferentialConstraint>
@@ -650,7 +684,19 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__WorkerI__412EB0B6">
+        <Association Name="FK__Worker__Qualific__1881A0DE">
+          <End Role="QualificationLevel" Type="Self.QualificationLevel" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QualificationLevel">
+              <PropertyRef Name="QualificationLevelId" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="QualificationLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__WorkerI__1E3A7A34">
           <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -674,39 +720,43 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <EntitySet Name="vwManagers" EntityType="Self.vwManager" />
           <EntitySet Name="vwRequests" EntityType="Self.vwRequest" />
           <EntitySet Name="vwWorkers" EntityType="Self.vwWorker" />
-          <AssociationSet Name="FK__Worker__Engagmen__3B75D760" Association="Self.FK__Worker__Engagmen__3B75D760">
+          <AssociationSet Name="FK__Worker__Engagmen__178D7CA5" Association="Self.FK__Worker__Engagmen__178D7CA5">
             <End Role="Engagment" EntitySet="Engagments" />
             <End Role="Worker" EntitySet="Workers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__GenderId__3A81B327" Association="Self.FK__Worker__GenderId__3A81B327">
+          <AssociationSet Name="FK__Worker__GenderId__1699586C" Association="Self.FK__Worker__GenderId__1699586C">
             <End Role="Gender" EntitySet="Genders" />
             <End Role="Worker" EntitySet="Workers" />
           </AssociationSet>
-          <AssociationSet Name="FK__HotelUser__RoleI__32E0915F" Association="Self.FK__HotelUser__RoleI__32E0915F">
+          <AssociationSet Name="FK__HotelUser__RoleI__0E04126B" Association="Self.FK__HotelUser__RoleI__0E04126B">
             <End Role="Role" EntitySet="Roles" />
             <End Role="HotelUser" EntitySet="HotelUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manager__HotelUs__35BCFE0A" Association="Self.FK__Manager__HotelUs__35BCFE0A">
+          <AssociationSet Name="FK__Manager__HotelUs__11D4A34F" Association="Self.FK__Manager__HotelUs__11D4A34F">
             <End Role="HotelUser" EntitySet="HotelUsers" />
             <End Role="Manager" EntitySet="Managers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__HotelUse__398D8EEE" Association="Self.FK__Worker__HotelUse__398D8EEE">
+          <AssociationSet Name="FK__Worker__HotelUse__15A53433" Association="Self.FK__Worker__HotelUse__15A53433">
             <End Role="HotelUser" EntitySet="HotelUsers" />
             <End Role="Worker" EntitySet="Workers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manager__Qualifi__36B12243" Association="Self.FK__Manager__Qualifi__36B12243">
+          <AssociationSet Name="FK__Manager__Qualifi__12C8C788" Association="Self.FK__Manager__Qualifi__12C8C788">
             <End Role="QualificationLevel" EntitySet="QualificationLevels" />
             <End Role="Manager" EntitySet="Managers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__Manager__4222D4EF" Association="Self.FK__Request__Manager__4222D4EF">
+          <AssociationSet Name="FK__Request__Manager__1F2E9E6D" Association="Self.FK__Request__Manager__1F2E9E6D">
             <End Role="Manager" EntitySet="Managers" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Worker__ManagerI__3C69FB99" Association="Self.FK__Worker__ManagerI__3C69FB99">
+          <AssociationSet Name="FK__Worker__ManagerI__1975C517" Association="Self.FK__Worker__ManagerI__1975C517">
             <End Role="Manager" EntitySet="Managers" />
             <End Role="Worker" EntitySet="Workers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__WorkerI__412EB0B6" Association="Self.FK__Request__WorkerI__412EB0B6">
+          <AssociationSet Name="FK__Worker__Qualific__1881A0DE" Association="Self.FK__Worker__Qualific__1881A0DE">
+            <End Role="QualificationLevel" EntitySet="QualificationLevels" />
+            <End Role="Worker" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__WorkerI__1E3A7A34" Association="Self.FK__Request__WorkerI__1E3A7A34">
             <End Role="Worker" EntitySet="Workers" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
@@ -738,7 +788,6 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
               <MappingFragment StoreEntitySet="HotelUser">
                 <ScalarProperty Name="HotelUserId" ColumnName="HotelUserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -777,6 +826,7 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
                 <ScalarProperty Name="Explanation" ColumnName="Explanation" />
                 <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
                 <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -792,12 +842,14 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
             <EntityTypeMapping TypeName="HotelPremierModel.Worker">
               <MappingFragment StoreEntitySet="Worker">
                 <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
-                <ScalarProperty Name="ClinicFloor" ColumnName="ClinicFloor" />
+                <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
                 <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="HotelUserId" ColumnName="HotelUserId" />
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="EngagmentId" ColumnName="EngagmentId" />
+                <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+                <ScalarProperty Name="QualificationLevelId" ColumnName="QualificationLevelId" />
                 <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -805,19 +857,18 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
           <EntitySetMapping Name="vwManagers">
             <EntityTypeMapping TypeName="HotelPremierModel.vwManager">
               <MappingFragment StoreEntitySet="vwManager">
+                <ScalarProperty Name="QualificationLevelId" ColumnName="QualificationLevelId" />
                 <ScalarProperty Name="HotelUserId" ColumnName="HotelUserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
                 <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
                 <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
-                <ScalarProperty Name="QualificationLevelId" ColumnName="QualificationLevelId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -833,7 +884,8 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
                 <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
                 <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
                 <ScalarProperty Name="Mgn" ColumnName="Mgn" />
-                <ScalarProperty Name="Work" ColumnName="Work" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -842,19 +894,21 @@ warning 6002: The table/view 'HotelPremier.dbo.vwWorker' does not have a primary
               <MappingFragment StoreEntitySet="vwWorker">
                 <ScalarProperty Name="HotelUserId" ColumnName="HotelUserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
-                <ScalarProperty Name="ClinicFloor" ColumnName="ClinicFloor" />
                 <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
-                <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="EngagmentId" ColumnName="EngagmentId" />
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
+                <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+                <ScalarProperty Name="QualificationLevelId" ColumnName="QualificationLevelId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

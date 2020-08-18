@@ -21,18 +21,21 @@ namespace HotelPremier
         }
     
         public int WorkerId { get; set; }
-        public int ClinicFloor { get; set; }
+        public int HotelFloor { get; set; }
         public string Citizenship { get; set; }
-        public Nullable<decimal> Salary { get; set; }
+        public decimal Salary { get; set; }
         public int HotelUserId { get; set; }
         public int GenderId { get; set; }
         public int EngagmentId { get; set; }
+        public int WorkExperience { get; set; }
+        public int QualificationLevelId { get; set; }
         public int ManagerId { get; set; }
     
         public virtual Engagment Engagment { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual HotelUser HotelUser { get; set; }
         public virtual Manager Manager { get; set; }
+        public virtual QualificationLevel QualificationLevel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Requests { get; set; }
     }

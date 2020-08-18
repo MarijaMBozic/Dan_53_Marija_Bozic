@@ -22,6 +22,7 @@ namespace HotelPremier
         public string Explanation { get; set; }
         public int WorkerId { get; set; }
         public int ManagerId { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual Manager Manager { get; set; }
         public virtual Worker Worker { get; set; }

@@ -66,7 +66,6 @@
         <Label Grid.Column="7" Grid.Row="5" Name="lblValidationWorkExperience" Grid.ColumnSpan="7" Grid.RowSpan="5" Padding="0" HorizontalAlignment="Left"/>
         <Label Grid.Column="11" Grid.Row="7" Name="lblQualificationLevelId" Content="Qualification Level:" Padding="0" HorizontalAlignment="Right"/>
         <Label Grid.Column="7" Grid.Row="7" Name="lblValidationQualificationLevelId" Grid.ColumnSpan="7" Grid.RowSpan="5" Padding="0" HorizontalAlignment="Left"/>
-
         <TextBox Grid.Column="3" Grid.Row="3" Name="txtFullname" Height="20" Width="100"
                  TextChanged="txtFullname_TextChanged"
                  Text="{Binding User.FullName, UpdateSourceTrigger=PropertyChanged}"/>
@@ -85,10 +84,10 @@
                      />
         <TextBox Grid.Column="13" Grid.Row="3" Name="txtFloor" Height="20" Width="100"
                  TextChanged="txtFloor_TextChanged"
-                 Text="{Binding UserManger.HotelFloor, UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding UserManager.HotelFloor, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="13" Grid.Row="5" Name="txtWorkExperience" Height="20" Width="100"
                  TextChanged="txtWorkExperience_TextChanged"
-                 Text="{Binding UserManger.WorkExperience, UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding UserManager.WorkExperience, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox Grid.Column="13" Grid.Row="7" Name="cmbQualificationLevel" Height="20" Width="100" 
                   DisplayMemberPath="Name" Text="Select level" IsEditable="True"
                   ItemsSource="{Binding QualificationLevelList, UpdateSourceTrigger=PropertyChanged}"                 

@@ -18,6 +18,7 @@ namespace HotelPremier
         public QualificationLevel()
         {
             this.Managers = new HashSet<Manager>();
+            this.Workers = new HashSet<Worker>();
         }
     
         public int QualificationLevelId { get; set; }
@@ -25,5 +26,7 @@ namespace HotelPremier
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Manager> Managers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worker> Workers { get; set; }
     }
 }

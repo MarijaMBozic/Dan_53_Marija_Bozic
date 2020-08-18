@@ -64,22 +64,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\EditToEnabledConverter.cs" />
+    <Compile Include="Converters\GenderIDToNameConverter.cs" />
     <Compile Include="Engagment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Gender.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Salary.cs" />
     <Compile Include="HotelUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="QualificationLevel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -93,18 +106,37 @@
     <Compile Include="Service\OwnerLogIn.cs" />
     <Compile Include="Service\ServiceCode.cs" />
     <Compile Include="ViewModels\AddManagerViewModel.cs" />
+    <Compile Include="ViewModels\AddSalaryForOneWorkerViewModel.cs" />
     <Compile Include="ViewModels\AddWorkerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ManagerLogedInViewModel.cs" />
     <Compile Include="ViewModels\OwnerViewModel.cs" />
+    <Compile Include="ViewModels\RequestViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\WorkerLogedInViewModel.cs" />
     <Compile Include="Views\AddManagerView.xaml.cs">
       <DependentUpon>AddManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSalaryForOneWorker.xaml.cs">
+      <DependentUpon>AddSalaryForOneWorker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddWorkerView.xaml.cs">
       <DependentUpon>AddWorkerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChangeAllSalary.xaml.cs">
+      <DependentUpon>ChangeAllSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerLogedInView.xaml.cs">
+      <DependentUpon>ManagerLogedInView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OwnerView.xaml.cs">
       <DependentUpon>OwnerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RequestView.xaml.cs">
+      <DependentUpon>RequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkerLogedInView.xaml.cs">
+      <DependentUpon>WorkerLogedInView.xaml</DependentUpon>
     </Compile>
     <Compile Include="vwManager.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -136,7 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddSalaryForOneWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddWorkerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangeAllSalary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerLogedInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,18 +188,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkerLogedInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -190,17 +232,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="OwnerAccess\OwnerAccess.txt" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="OwnerAccess\OwnerAccess.txt" />
     <Content Include="SQL_design\SQL_Design_Hotel.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,8 @@ namespace HotelPremier.Views
         private bool isValidGender;
         private bool isValidCitizenship;
         private bool isValidEngagment;
-        private bool isValidSalary;
+        private bool isValidWorkExperience;
+        private bool isValidQualificationLevel;
 
         public AddWorkerView()
         {
@@ -49,7 +50,8 @@ namespace HotelPremier.Views
             isValidGender &&
             isValidCitizenship &&
             isValidEngagment &&
-            isValidSalary)
+            isValidQualificationLevel &&
+            isValidWorkExperience)
             {
                 btnSave.IsEnabled = true;
             }
@@ -107,38 +109,7 @@ namespace HotelPremier.Views
                 isValidEngagment = true;
             }
             IsAddingNewWorkerEnabled();
-        }
-
-        private void txtSalary_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (txtSalary.Focus())
-            {
-                lblValidationSalary.Visibility = Visibility.Visible;
-                lblValidationSalary.FontSize = 16;
-                lblValidationSalary.Foreground = new SolidColorBrush(Colors.Red);
-                lblValidationSalary.Content = "Input for salary must be \nbetween 1-1000!";
-            }
-
-            string patternSalary = @"^([0-9]{3})$";
-            Match match = Regex.Match(txtSalary.Text, patternSalary, RegexOptions.IgnoreCase);
-
-            bool isValid = int.TryParse(txtSalary.Text, out int inputvalu);
-
-            if (!match.Success || inputvalu > 1000 || inputvalu<1)
-            {
-                txtSalary.BorderBrush = new SolidColorBrush(Colors.Red);
-                txtSalary.Foreground = new SolidColorBrush(Colors.Red);
-                isValidSalary = false;
-            }
-            else
-            {
-                lblValidationSalary.Visibility = Visibility.Hidden;
-                txtSalary.BorderBrush = new SolidColorBrush(Colors.Black);
-                txtSalary.Foreground = new SolidColorBrush(Colors.Black);
-                isValidSalary = true;
-            }
-            IsAddingNewWorkerEnabled();
-        }
+        }       
 
         private void txtCitizenship_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -333,7 +304,7 @@ namespace HotelPremier.Views
                 lblValidationHotelFloor.Visibility = Visibility.Visible;
                 lblValidationHotelFloor.FontSize = 16;
                 lblValidationHotelFloor.Foreground = new SolidColorBrush(Colors.Red);
-                lblValidationHotelFloor.Content = "You have to select Qualification Level!";
+                lblValidationHotelFloor.Content = "You have to select floor!";
             }
 
             if (cmbFloor.SelectedItem == null)
@@ -350,5 +321,62 @@ namespace HotelPremier.Views
             }
             IsAddingNewWorkerEnabled();
         }
+
+        private void txtWorkExperience_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtWorkExperience.Focus())
+            {
+                lblValidationWorkExperience.Visibility = Visibility.Visible;
+                lblValidationWorkExperience.FontSize = 16;
+                lblValidationWorkExperience.Foreground = new SolidColorBrush(Colors.Red);
+                lblValidationWorkExperience.Content = "The work experience can't \nbe larger then 40 years \n and less then one!";
+            }
+
+            string patterntxtWorkExperience = @"^([0-9]{1,2})$";
+            Match match = Regex.Match(txtWorkExperience.Text, patterntxtWorkExperience, RegexOptions.IgnoreCase);
+
+            bool isValid = int.TryParse(txtWorkExperience.Text, out int inputvalu);
+
+            if (!match.Success || inputvalu > 40 || inputvalu <=0)
+            {
+                txtWorkExperience.BorderBrush = new SolidColorBrush(Colors.Red);
+                txtWorkExperience.Foreground = new SolidColorBrush(Colors.Red);
+                isValidWorkExperience = false;
+            }
+            else
+            {
+                lblValidationWorkExperience.Visibility = Visibility.Hidden;
+                txtWorkExperience.BorderBrush = new SolidColorBrush(Colors.Black);
+                txtWorkExperience.Foreground = new SolidColorBrush(Colors.Black);
+                isValidWorkExperience = true;
+            }
+            IsAddingNewWorkerEnabled();
+        }
+
+        private void cmbQualificationLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbQualificationLevel.Focus())
+            {
+                lblValidationQualificationLevel.Visibility = Visibility.Visible;
+                lblValidationQualificationLevel.FontSize = 16;
+                lblValidationQualificationLevel.Foreground = new SolidColorBrush(Colors.Red);
+                lblValidationQualificationLevel.Content = "You have to select Qualification Level!";
+            }
+
+            if (cmbQualificationLevel.SelectedItem == null)
+            {
+                cmbQualificationLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                cmbQualificationLevel.Foreground = new SolidColorBrush(Colors.Red);
+                isValidQualificationLevel = false;
+            }
+            else
+            {
+                cmbQualificationLevel.BorderBrush = new SolidColorBrush(Colors.Black);
+                cmbQualificationLevel.Foreground = new SolidColorBrush(Colors.Black);
+                isValidQualificationLevel = true;
+            }
+            IsAddingNewWorkerEnabled();
+        }
+
     }
 }

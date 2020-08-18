@@ -109,7 +109,7 @@ namespace HotelPremier.ViewModels
         {
             try
             {
-                AddWorkerView main = new AddWorkerView();
+                AddManagerView main = new AddManagerView();
                 main.Show();
                 ownerView.Close();
             }

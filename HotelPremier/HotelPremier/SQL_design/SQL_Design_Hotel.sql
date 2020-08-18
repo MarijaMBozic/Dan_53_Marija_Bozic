@@ -31,7 +31,6 @@ create table QualificationLevel(
 create table HotelUser(
    HotelUserId                 int            identity (1,1) primary key,   
    FullName                    nvarchar(100)           not null,
-   IDNumber                    int             unique  not null,
    DateOfBirth                 date                   default getDate(),
    Email                       nvarchar(100)  unique  not null,
    Username                    nvarchar(100)  unique  not null,
@@ -44,23 +43,28 @@ create table Manager(
  ManagerId                              int            identity (1,1) primary key,   
  HotelUserId                            int                    not null,
  FOREIGN KEY (HotelUserId)  REFERENCES HotelUser(HotelUserId),
- HotelFloor                             int                    not null,
+ HotelFloor                             int        unique      not null,
  WorkExperience                         int                    not null,
  QualificationLevelId                   int                    not null,
-  FOREIGN KEY (QualificationLevelId)  REFERENCES QualificationLevel(QualificationLevelId),
+ FOREIGN KEY (QualificationLevelId)  REFERENCES QualificationLevel(QualificationLevelId),
 )
 
 create table Worker(
  WorkerId                               int            identity (1,1) primary key,   
  HotelFloor                            int                    not null,
  Citizenship                   nvarchar(100)                   not null,
- Salary                                 money                      null,
+ Salary                                 money                  not null    ,
  HotelUserId                            int                    not null,
  FOREIGN KEY (HotelUserId)  REFERENCES HotelUser(HotelUserId),
  GenderId                               int                    not null,
  FOREIGN KEY (GenderId)  REFERENCES Gender(GenderId),
  EngagmentId                            int                    not null,
- FOREIGN KEY (EngagmentId)  REFERENCES Engagment(EngagmentId) 
+ FOREIGN KEY (EngagmentId)  REFERENCES Engagment(EngagmentId),
+ WorkExperience                         int                    not null,
+ QualificationLevelId                   int                    not null,
+ FOREIGN KEY (QualificationLevelId)  REFERENCES QualificationLevel(QualificationLevelId),
+  ManagerId                            int                    not null,
+ FOREIGN KEY (ManagerId)  REFERENCES Manager(ManagerId),
 )
 
 create table Request(
@@ -73,10 +77,9 @@ create table Request(
  WorkerId                            int                       not null,
  FOREIGN KEY (WorkerId)  REFERENCES Worker(WorkerId),
  ManagerId                              int                    not null,
- FOREIGN KEY (ManagerId)  REFERENCES Manager(ManagerId) 
+ FOREIGN KEY (ManagerId)  REFERENCES Manager(ManagerId) ,
+ IsDeleted                              bit                    default 0 not null,
 )
-
-
 
 Insert into Gender(Name)
 values('Female'),
