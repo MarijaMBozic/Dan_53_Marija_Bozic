@@ -1,3 +1,5 @@
+CREATE DATABASE HotelPremier;
+GO
 Use HotelPremier
 
 drop table if exists Request 
@@ -104,3 +106,30 @@ values('Cleaning'),
       ('Cooking'),
 	  ('Supervising'),
       ('Reporting')
+
+go
+
+CREATE VIEW vwManager AS
+	SELECT        dbo.QualificationLevel.Name AS QualificationLevelId, dbo.HotelUser.HotelUserId, dbo.HotelUser.FullName, dbo.HotelUser.DateOfBirth, dbo.HotelUser.Email, dbo.HotelUser.Username, dbo.HotelUser.Password, 
+                         dbo.HotelUser.RoleId, dbo.Manager.ManagerId, dbo.Manager.HotelFloor, dbo.Manager.WorkExperience, dbo.Manager.QualificationLevelId AS Expr1
+	FROM            dbo.QualificationLevel INNER JOIN
+                         dbo.Manager ON dbo.QualificationLevel.QualificationLevelId = dbo.Manager.QualificationLevelId INNER JOIN
+                         dbo.HotelUser ON dbo.Manager.HotelUserId = dbo.HotelUser.HotelUserId
+
+go
+
+CREATE VIEW vwRequest AS
+SELECT        dbo.Request.RequestId, dbo.Request.StartDate, dbo.Request.EndDate, dbo.Request.Reason, dbo.Request.Status, dbo.Request.Explanation, dbo.Request.WorkerId, dbo.Request.ManagerId, dbo.Request.IsDeleted AS Mgn, 
+                         dbo.Manager.ManagerId AS Expr1, dbo.Worker.WorkerId AS Expr2
+FROM            dbo.Request INNER JOIN
+                         dbo.Manager ON dbo.Request.ManagerId = dbo.Manager.ManagerId INNER JOIN
+                         dbo.Worker ON dbo.Request.WorkerId = dbo.Worker.WorkerId
+
+go
+
+CREATE VIEW vwWorker AS
+	SELECT        dbo.HotelUser.HotelUserId, dbo.HotelUser.FullName, dbo.HotelUser.DateOfBirth, dbo.HotelUser.Email, dbo.HotelUser.Username, dbo.HotelUser.Password, dbo.HotelUser.RoleId, dbo.Worker.WorkerId, dbo.Worker.Citizenship, 
+                         dbo.Worker.GenderId, dbo.Worker.EngagmentId, dbo.Worker.Salary, dbo.Worker.HotelFloor, dbo.Worker.WorkExperience, dbo.Worker.QualificationLevelId, dbo.Engagment.Name, dbo.Worker.ManagerId
+	FROM            dbo.HotelUser INNER JOIN
+                         dbo.Worker ON dbo.HotelUser.HotelUserId = dbo.Worker.HotelUserId INNER JOIN
+                         dbo.Engagment ON dbo.Worker.EngagmentId = dbo.Engagment.EngagmentId
